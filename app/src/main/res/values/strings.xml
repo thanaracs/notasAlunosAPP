@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NotasAlunos</string>
+
+    <string-array name="maters">
+        <item>Segurança de Sistemas</item>
+        <item>Programação para dispositiveis móveis I</item>
+        <item>Novas tecnologias par BD</item>
+        <item>Infraestrutura de sistemas web</item>
+    </string-array>
+</resources>
