@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">NotasAlunos</string>
+    <string name="nota">Informe a nota:</string>
+    <string name="outros">Outros</string>
+    <string name="title">Lista de Alunos</string>
 
     <string-array name="maters">
         <item>Segurança de Sistemas</item>
