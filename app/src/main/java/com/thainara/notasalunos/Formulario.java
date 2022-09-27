@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,9 +12,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+// Activity do relatório
 public class Formulario extends AppCompatActivity {
     private TextView tituloLista;
     private ListView listaAlunos;
+    private Adapter adapter;
+    ArrayList<Aluno> alunosList;
 
 
     @Override
@@ -25,18 +27,12 @@ public class Formulario extends AppCompatActivity {
         tituloLista = findViewById(R.id.titleLista);
         listaAlunos = findViewById(R.id.listaAlunos);
 
-
         Intent intent = getIntent();
-        ArrayList<String> lista = intent.getStringArrayListExtra("lista");
-//        String lista = intent.getStringExtra("lista");
+        alunosList = (ArrayList<Aluno>) intent.getSerializableExtra("lista");
+        adapter = new Adapter(getApplicationContext(), alunosList );
+        listaAlunos.setAdapter(adapter);
 
-
-        ArrayAdapter adapter = new ArrayAdapter<Adapter>(this, R.layout.activity_formulario, i,lista);
-        ListView listView = (ListView) findViewById(R.id.listaAlunos);
-        listView.setAdapter(adapter);
-
-
-        Toast.makeText(Formulario.this, "Lista" + listaA,Toast.LENGTH_SHORT).show();
+        Toast.makeText(Formulario.this, "Lista" + alunosList,Toast.LENGTH_SHORT).show();
 
     }
     

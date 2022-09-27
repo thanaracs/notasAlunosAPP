@@ -2,7 +2,10 @@ package com.thainara.notasalunos;
 
 import static java.lang.Double.parseDouble;
 
-public class Aluno {
+import java.io.Serializable;
+
+// Class responsável por formar o objeto aluno
+public class Aluno implements Serializable {
     String nomeAluno;
     String notaAluno;
     String cursoSitemas;
@@ -14,26 +17,8 @@ public class Aluno {
         this.notaAluno = notaAluno;
         this.cursoSitemas = cursoSitemas;
         this.materias = materias;
-
-//        double nota = (Double) parseDouble(this.notaAluno);
-//        if (nota >= 6){
-//            this.statusBoletim = "Aprovadoooo. Boas férias! :D";
-//        } else{
-//            this.statusBoletim = "Infelizmente você foi reprovado! :(";
-//        }
+        this.statusBoletim = statusBoletim;
     }
-
-//    public String boletim(String notaAluno){
-//        double nota = (Double) parseDouble(notaAluno);
-//        String statusNota;
-//        if (nota >= 6){
-//            statusNota = "Aprovadoooo. Boas férias! :D";
-//        } else{
-//            statusNota = "Infelizmente você foi reprovado! :(";
-//        }
-//
-//        return statusNota;
-//    }
 
     public String getNomeAluno() {
         return nomeAluno;
@@ -41,6 +26,10 @@ public class Aluno {
 
     public void setNomeAluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
+    }
+
+    public String getStatusBoletim(){
+        return  statusBoletim;
     }
 
     public String getNotaAluno() {

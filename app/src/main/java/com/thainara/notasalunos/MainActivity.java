@@ -77,11 +77,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 double notaa = (Double) parseDouble(nota.getText().toString());
                 if (notaa >= 6){
-                    statusBoletim = "Aprovadoooo. Boas férias! :D";
+                    statusBoletim = "Aprovado";
                 } else{
-                    statusBoletim = "Infelizmente você foi reprovado! :(";
+                    statusBoletim = "reprovado";
                 }
-                Aluno aluno = new Aluno(nomeAluno.getText().toString(), curso, materia, nota.getText().toString(),statusBoletim);
+                Aluno aluno = new Aluno(nomeAluno.getText().toString(), nota.getText().toString(), curso, materia,statusBoletim);
                 alunos.add(aluno);
                 Toast.makeText(MainActivity.this, "Adicionado Aluno: " +alunos, Toast.LENGTH_SHORT).show();
                 if (alunos.size() >= 3){
@@ -96,10 +96,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View view) {
                 progressbar.setVisibility(View.VISIBLE);
 
-
 //                Toast.makeText(MainActivity.this, "pipipi: " +alunos, Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(getApplicationContext(), Formulario.class);
-                it.putExtra("lista", alunos.toString());
+                it.putExtra("lista", alunos);
                 startActivity(it);
 
             }
