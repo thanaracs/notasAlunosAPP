@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 Aluno aluno = new Aluno(nomeAluno.getText().toString(), curso, materia, nota.getText().toString(),statusBoletim);
                 alunos.add(aluno);
-                Toast.makeText(MainActivity.this, "pipipi: " +alunos, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(MainActivity.this, "Adicionado Aluno: " +alunos, Toast.LENGTH_SHORT).show();
                 if (alunos.size() >= 3){
                     btnEnviar.setEnabled(true);
                 }
@@ -96,9 +95,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 progressbar.setVisibility(View.VISIBLE);
-                Toast.makeText(MainActivity.this, "pipipi: " +alunos, Toast.LENGTH_SHORT).show();
+
+
+//                Toast.makeText(MainActivity.this, "pipipi: " +alunos, Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(getApplicationContext(), Formulario.class);
-                it.putExtra("lista", alunos);
+                it.putExtra("lista", alunos.toString());
                 startActivity(it);
 
             }
@@ -121,6 +122,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //Inserir nota
     public void validacaoNota(){
     }
+
+//    public void enviarRelatorio(View view){
+//        Intent it = new Intent(getApplicationContext(), Formulario.class);
+//        it.putExtra("lista", alunos);
+//        startActivity(it);
+//    }
+
 
 
 
