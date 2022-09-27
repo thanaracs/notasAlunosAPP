@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private RadioButton rbCurso, rbOutros;
     private Spinner spinnerMaterias;
     private Button btnEnviar, btnAdicionar;
-    ProgressBar progressbar;
     private ArrayAdapter<CharSequence> adapter;
     ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     String curso = "";
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerMaterias = findViewById(R.id.spinnerSistemas);
         nota = findViewById(R.id.nota);
         btnEnviar = findViewById(R.id.btnEnviar);
-        progressbar = findViewById(R.id.carregar);
         btnAdicionar = findViewById(R.id.btnAdicionar);
         btnEnviar.setEnabled(false);  //bloqueando botão enviar
 
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 Aluno aluno = new Aluno(nomeAluno.getText().toString(), nota.getText().toString(), curso, materia,statusBoletim);
                 alunos.add(aluno);
-                Toast.makeText(MainActivity.this, "Adicionado Aluno: " +alunos, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Adicionado Aluno: " +alunos, Toast.LENGTH_SHORT).show();
                 if (alunos.size() >= 3){
                     btnEnviar.setEnabled(true);
                 }
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressbar.setVisibility(View.VISIBLE);
+
 
 //                Toast.makeText(MainActivity.this, "pipipi: " +alunos, Toast.LENGTH_SHORT).show();
                 Intent it = new Intent(getApplicationContext(), Formulario.class);
@@ -122,11 +120,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void validacaoNota(){
     }
 
-//    public void enviarRelatorio(View view){
-//        Intent it = new Intent(getApplicationContext(), Formulario.class);
-//        it.putExtra("lista", alunos);
-//        startActivity(it);
-//    }
 
 
 

@@ -7,10 +7,20 @@
     android:orientation="vertical"
     tools:context=".Formulario">
 
+    <ProgressBar
+        android:id="@+id/carregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:padding="40dp"/>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
+        android:id="@+id/tableList"
+        android:visibility="invisible"
         android:orientation="horizontal"
         >
         <TableRow>
@@ -40,6 +50,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:id="@+id/listaAlunos"/>
 
 
