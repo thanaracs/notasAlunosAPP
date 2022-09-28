@@ -38,9 +38,9 @@ public class Formulario extends AppCompatActivity implements AddDialogRelatorio.
         setContentView(R.layout.activity_formulario);
         tituloLista = findViewById(R.id.titleLista);
         listaAlunos = findViewById(R.id.listaAlunos);
-        Intent intent = getIntent();
+        //Intent intent = getIntent();
         progressBar = findViewById(R.id.carregar);
-        alunosList = (ArrayList<Aluno>) intent.getSerializableExtra("lista");
+        alunosList = (ArrayList<Aluno>) getIntent().getSerializableExtra("lista");
         adapter = new Adapter(getApplicationContext(), alunosList );
         listaAlunos.setAdapter(adapter);
         tabelaAlunos = findViewById(R.id.tableList);
@@ -62,7 +62,7 @@ public class Formulario extends AppCompatActivity implements AddDialogRelatorio.
                         }
                     });
                     try {
-                        // Sleep for 200 milliseconds.
+                        // tratamento sleep para 200 milliseconds.
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();

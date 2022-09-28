@@ -71,19 +71,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
         // Botão para adicionar alunos
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                double notaa = (Double) parseDouble(nota.getText().toString());
-                if (notaa >= 6){
-                    statusBoletim = "Aprovado";
-                } else{
-                    statusBoletim = "reprovado";
+                String nomeString = nomeAluno.getText().toString();
+                String notaString = nota.getText().toString();
+                if(nomeString.isEmpty() || notaString.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Informe dados do aluno!", Toast.LENGTH_SHORT).show();
                 }
-                Aluno aluno = new Aluno(nomeAluno.getText().toString(), nota.getText().toString(), curso, materia,statusBoletim);
-                alunos.add(aluno);
+                else {
+                    double notaa = (Double) parseDouble(nota.getText().toString());
+                    if (notaa >= 6) {
+                        statusBoletim = "Aprovado";
+                    } else {
+                        statusBoletim = "reprovado";
+                    }
+                    Aluno aluno = new Aluno(nomeAluno.getText().toString(), nota.getText().toString(), curso, materia, statusBoletim);
+                    alunos.add(aluno);
 //                Toast.makeText(MainActivity.this, "Adicionado Aluno: " +alunos, Toast.LENGTH_SHORT).show();
-                if (alunos.size() >= 3){
-                    btnEnviar.setEnabled(true);
+                    if (alunos.size() >= 3) {
+                        btnEnviar.setEnabled(true);
+                    }
                 }
             }
         });

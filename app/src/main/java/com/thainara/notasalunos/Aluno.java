@@ -2,6 +2,8 @@ package com.thainara.notasalunos;
 
 import static java.lang.Double.parseDouble;
 
+import android.widget.Toast;
+
 import java.io.Serializable;
 
 // Class responsável por formar o objeto aluno
@@ -18,6 +20,7 @@ public class Aluno implements Serializable {
         this.cursoSitemas = cursoSitemas;
         this.materias = materias;
         this.statusBoletim = statusBoletim;
+
     }
 
     public String getNomeAluno() {
