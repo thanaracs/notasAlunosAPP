@@ -7,79 +7,90 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Insira o nome: "
-        android:id="@+id/nomeAluno"/>
+        android:layout_height="match_parent">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/rbSistemas"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sistemas para Internet">
-        </RadioButton>
+            android:orientation="vertical" >
 
-        <RadioButton
-            android:id="@+id/rbOutros"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="@string/outros" />
-    </RadioGroup>
-    <Spinner
-        android:id="@+id/spinnerSistemas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible">
-    </Spinner>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/nota"
-        android:inputType="number"
-        android:id="@+id/nota"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insira o nome: "
+                android:id="@+id/nomeAluno"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/rbSistemas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sistemas para Internet">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rbOutros"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="@string/outros"/>
+            </RadioGroup>
+            <Spinner
+                android:id="@+id/spinnerSistemas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible">
+            </Spinner>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nota"
+                android:inputType="number"
+                android:visibility="invisible"
+                android:id="@+id/nota"/>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="363dp"
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-    <Button
-        android:id="@+id/btnAdicionar"
-        android:layout_width="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_margin="15dp"
-        android:text="+ add"/>
-    <Button
-        android:id="@+id/btnEnviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:layout_weight="2"
-        android:layout_margin="15dp"
-        android:layout_marginBottom="10dp"
-        android:text="relatório"
-        android:clickable="false" />
-    </LinearLayout>
+                android:gravity="bottom"
+                android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Envio mínimo de 3 alunos."/>
+                <Button
+                    android:id="@+id/btnAdicionar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="2"
+                    android:text="+ add" />
+
+                <Button
+                    android:id="@+id/btnEnviar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="2"
+                    android:clickable="false"
+                    android:text="relatório" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="Envio mínimo de 3 alunos." />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
 
 </LinearLayout>

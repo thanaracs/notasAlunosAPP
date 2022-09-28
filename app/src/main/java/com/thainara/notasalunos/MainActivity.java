@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     String curso = "";
     String materia = "", statusBoletim = "";
+    CharSequence charSequence = "11";
 
 
     @Override
@@ -47,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         rbCurso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nota.setVisibility(View.VISIBLE);
                 spinnerMaterias.setVisibility(View.VISIBLE);
-
                 adapter = ArrayAdapter.createFromResource(MainActivity.this, R.array.maters ,
                         android.R.layout.simple_spinner_item);
                 //new ArrayAdapter<CharSequence>(MainActivity.this,android.R.layout.simple_spinner_item, materias);
@@ -64,9 +66,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         rbOutros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                nota.setVisibility(View.INVISIBLE);
                 spinnerMaterias.setVisibility(View.INVISIBLE);
                 curso = rbOutros.getText().toString();
                 materia = "Materia não informada.";
+                nota.setText(charSequence);
+//                if(nota == null){
+//                    int notaValueOthers = 0;
+//                    Toast.makeText(MainActivity.this, "nota:" + nota, Toast.LENGTH_SHORT);
+//                }
             }
         });
         // Botão para adicionar alunos
@@ -74,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void onClick(View v) {
+
                 String nomeString = nomeAluno.getText().toString();
                 String notaString = nota.getText().toString();
                 if(nomeString.isEmpty() || notaString.isEmpty()){
@@ -81,8 +90,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
                 else {
                     double notaa = (Double) parseDouble(nota.getText().toString());
-                    if (notaa >= 6) {
+                    if ((notaa >= 6) && (notaa <= 10)) {
                         statusBoletim = "Aprovado";
+
+                    }else if(notaa == 11){
+                        CharSequence charSequence = "0";
+                        nota.setText(charSequence);
+                        statusBoletim = "Sem matricula.";
                     } else {
                         statusBoletim = "reprovado";
                     }
@@ -92,6 +106,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     if (alunos.size() >= 3) {
                         btnEnviar.setEnabled(true);
                     }
+                    nomeAluno.setText("");
+                    nota.setText("");
+                    rbCurso.setChecked(false);
+                    rbOutros.setChecked(false);
                 }
             }
         });
